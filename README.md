@@ -1,6 +1,34 @@
-# Robot-Vacuum-Cleaner-Project-with-Raspberry-Pi
-Robot Vacuum Control Cleaner , Ultrasonic Sensors, and LCD Display
-Robot Vacuum Control, Ultrasonic Sensors, and LCD Display 
+# Raspberry Pi Robot Vacuum Cleaner Project
 
+Bu proje, Raspberry Pi, Ultrasonik Sensörler, Motor Sürücü (L298) ve LCD ekran kullanılarak geliştirilen bir robot süpürge kontrol sistemini içerir.
 
-Robot Süpürge Projesi: Amaç: Sensörler yardımıyla Robot süpürgenin sağa ve sola dönme hareketlerini yapması. Bu sayede çarpabileceği engellerden uzaklaşması hedeflenmektedir. Sensörler ve Motor Sürücü (L298) dışarıdan harici olarak eklendiği için bunların kütüphanelerini Proteus’a dahil etmemiz gerekir. • L298 iki ayrı motoru sürmek için kullanılan sensördür. • hcsr04sensor Python’da kullanabilmek için eklenen bir sensördür. .IDX VE LIB Dosyaları ‘’ C:\Program Files (x86)\Labcenter Electronics\Proteus 8.13 Professional\DATA\LIBRARY ’’ bu dosya yoluna atılmalıdır. Bu şekilde sensör kullanılabilir hale gelir. hcsr04sensor klasörü ‘’ C:\Program Files (x86)\Labcenter Electronics\Proteus 8.13 Professional\DATA\VSM Studio\drivers\RaspberryPi ‘’ bu dosya yoluna atılmalıdır. Böylece bu sensörü kullanabiliriz. Kod kümesinde kütüphane çağrılmalıdır. Kütüphane; import hcsr04sensor şeklinde çağrılır. • Dokunmatik Sensör butonundan 1 gönderildiğinde robot süpürge düğmeye basmışız gibi algılar ve süpürge çalışmaya başlar. Yani sensör aktif olur. Kullanılan Ultrasonik Sensör radyo dalgası gönderiyor geri sekiyor geri geliyor aradaki zaman farkından mesafeyi ölçüyor. Örneğin; sensörün önüne bir engel çıkarsa kaç cm onu ölçer. Mesafeyi ayarlayabilmek için bir direnç kullandım ve buna bir sınır koydum. Örneğin duvara 1 cm’ye kadar yaklaştığında geri dön. Eğer değer 1 cm üzerinde verilirse düz gidiyor diye başlar. Robot Hareketleri; 10 saniye düz gitti sağa döndü 2 saniye düz ilerlerdi tekrar sağa döndü 10 saniye tekrar ilerledi ve bunu döngü halinde sürekli yapmaya devam eder. Temizleme mantığı bu şekildedir ( U şeklinde). Robot sağa dönmek istiyor o zaman sol motorun gücü kesilir. Sola dönmek isterse de sağ motorun gücü kesilir. Bu mantığı fren yapıyormuş gibi düşünebiliriz.
+## Kurulum
+
+1. **Proteus Kütüphaneleri:**
+   - `IDX` ve `LIB` dosyalarını `C:\Program Files (x86)\Labcenter Electronics\Proteus 8.13 Professional\DATA\LIBRARY` yoluna ekleyin.
+   - `hcsr04sensor` klasörünü `C:\Program Files (x86)\Labcenter Electronics\Proteus 8.13 Professional\DATA\VSM Studio\drivers\RaspberryPi` yoluna ekleyin.
+
+2. **Sensör Kullanımı:**
+   - `hcsr04sensor` kütüphanesini kodunuzda şu şekilde çağırın: `import hcsr04sensor`
+
+3. **Dokunmatik Sensör:**
+   - Robot süpürgeyi başlatmak için dokunmatik sensöre bir sinyal gönderin.
+
+## Sensör ve Robot Hareketleri
+
+- Ultrasonik sensör, robot süpürgenin çevresindeki mesafeyi ölçer.
+- Mesafe belirli bir sınırın altına düştüğünde, robot süpürge belirli bir hareket sergiler (örneğin, sağa döner).
+- Robot süpürge belirli bir temizleme mantığına sahiptir (örneğin, U şeklinde hareket eder).
+
+## Robot Hareket Mantığı
+
+- Robot süpürge, belirli bir süre düz gider, ardından sağa döner, tekrar düz gider ve bu döngüyü devam ettirir.
+- Sağa dönmek için sol motorun gücü kesilir, sola dönmek için sağ motorun gücü kesilir.
+
+## Katkıda Bulunma
+
+Eğer bu projeye katkıda bulunmak istiyorsanız, lütfen bir çekme isteği (pull request) göndermeden önce [Katkıda Bulunma Kılavuzu](CONTRIBUTING.md) dosyasını inceleyin.
+
+## Lisans
+
+Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
